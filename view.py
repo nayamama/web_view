@@ -30,7 +30,7 @@ media = ["https://v.qq.com/x/cover/mzc00200js3mdvw/q00354i139r.html",
 options = Options()
 options.headless = True
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",
-                          service_args=["--verbose", "--log-path=/home/qi/PycharmProjects/web_view/chrome.log"],
+                          #service_args=["--verbose", "--log-path=/home/qi/PycharmProjects/web_view/chrome.log"],
                           chrome_options=options)
 
 """
