@@ -3,10 +3,10 @@ from selenium.webdriver.chrome.options import Options
 import time
 import random
 
-t = time.localtime()
-current_time = time.strftime("%m/%d/%Y, %H:%M:%S")
-print(current_time)
-print("=======================================")
+#t = time.localtime()
+#current_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+#print(current_time)
+#print("=======================================")
 
 # The urls for all possible videos
 media = ["https://v.qq.com/x/cover/mzc00200js3mdvw/q00354i139r.html",
@@ -46,12 +46,20 @@ driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",
 
 """
 
-for i in range(2):
+i = 0
+
+#for i in range(2):
+while True:
+    i += 1
+    current_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+    print(current_time)
     print("Running the video for {} time".format(i))
+    print("=======================================")
     #driver.get("https://v.qq.com/x/page/w3228bfxa8z.html")
     video_id = random.randint(0, len(media) - 1)
     driver.get(media[video_id])
     sleep_time = random.randint(1200, 1320)
     time.sleep(sleep_time)
 
-driver.close()
+
+#driver.close()
