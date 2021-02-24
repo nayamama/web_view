@@ -29,9 +29,15 @@ media = ["https://v.qq.com/x/cover/mzc00200js3mdvw/q00354i139r.html",
 # Start headless Google driver
 options = Options()
 options.headless = True
-driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",
-                          #service_args=["--verbose", "--log-path=/home/qi/PycharmProjects/web_view/chrome.log"],
-                          chrome_options=options)
+options.add_argument("window-size=1400,1500")
+options.add_argument("--disable-gpu")
+options.add_argument("--no-sandbox")
+options.add_argument("start-maximized")
+options.add_argument("enable-automation")
+options.add_argument("--disable-infobars")
+options.add_argument("--disable-dev-shm-usage")
+
+driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
 
 """
 # Start regular Google driver
@@ -40,7 +46,7 @@ driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",
 
 """
 
-for i in range(10):
+for i in range(2):
     print("Running the video for {} time".format(i))
     #driver.get("https://v.qq.com/x/page/w3228bfxa8z.html")
     video_id = random.randint(0, len(media) - 1)
