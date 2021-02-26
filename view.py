@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import WebDriverException
 import time
 import random
 
@@ -65,5 +66,9 @@ while True:
         time.sleep(sleep_time)
     except TimeoutException:
         print("Oops! There is a timeout error.")
+        driver.close()
+        driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
+    except WebDriverException:
+        print("Oops! There is a web-driver error.")
         driver.close()
         driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
