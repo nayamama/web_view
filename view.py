@@ -68,7 +68,7 @@ while True:
         print("Oops! There is a timeout error.")
         driver.close()
         driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
-    except WebDriverException:
+    finally:
         print("Oops! There is a web-driver error.")
         driver.close()
         driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
